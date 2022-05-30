@@ -1,6 +1,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import { MongoClient } from 'mongodb';
+
+const uri = 'mongodb+srv://admin:teste123@crud.hbljf.mongodb.net/?retryWrites=true&w=majority';
 const app = express();
+
+MongoClient.connect(uri, (err, db) => {
+    if (err) return console.error(err)
+    console.log('Connected to MongoDB')
+})
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -16,5 +24,5 @@ app.get('/', (req, res) => {
 
 app.post('/depoimentos', (req, res) => {
     console.log(req.body);
-    res.send('ok');
+    res.send(req.body);
 })
