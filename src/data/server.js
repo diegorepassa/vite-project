@@ -1,10 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient } from 'mongodb';
 
 const app = express();
 
-const uri = "mongodb+srv://admin:teste123@crud.hbljf.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://admin:123@cluster0.2hxqm.mongodb.net/?retryWrites=true&w=majority";
 
 MongoClient.connect(uri, (err, db) => {
   if (err) return console.error(err);
